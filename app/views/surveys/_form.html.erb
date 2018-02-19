@@ -1,8 +1,8 @@
 <div class="survey" id="survey">
   <div class="form">
     <h1>GET STARTED</h1>
-    <div class="form-input">
-      <%= simple_form_for(survey) do |s| %>
+    <%= simple_form_for(survey) do |s| %>
+      <div class="form-input">
         <div class="col-lg-6 col-sm-6 col-xs-12">
           <%= s.input :name %>
         </div>
@@ -39,10 +39,10 @@
         <div class="col-lg-12 col-sm-12 col-xs-12">
           <%= s.input :other, label: "Any additional information that you would like to include?" %>
         </div>
-        <div class="form-action">
-          <%= s.submit "SUBMIT", class: "btn" %>
-        </div>
-      <% end %>
-    </div>
+      </div>
+      <div class="form-action">
+        <%= s.submit "SUBMIT", class: "btn" %>
+      </div>
+    <% end %>
   </div>
 </div>
