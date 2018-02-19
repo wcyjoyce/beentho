@@ -1,0 +1,17 @@
+<div class="form">
+  <%= simple_form_for(survey) do |s| %>
+    <%= s.input :name %>
+    <%= s.input :email %>
+    <%= s.input :start_date %>
+    <%= s.input :end_date %>
+    <%= s.input :adults %>
+    <%= s.input :children %>
+    <%= s.input :purpose %>
+    <%= s.input :preferences %>
+    <%= s.input :budget %>
+    <%= s.input :asia %>
+    <%= s.input :memorable %>
+    <%= s.input :other %>
+    <%= s.submit %>
+  <% end %>
+</div>
