@@ -1,4 +1,5 @@
 class SurveysController < ApplicationController
+  # before_action :set_survey, only: [:show]
   skip_before_action :authenticate_user!
 
   def new
@@ -16,14 +17,17 @@ class SurveysController < ApplicationController
     end
   end
 
-  def show
-    authorize @survey
-    @surveys = Survey.order(created_at: :desc)
+  def index
+    @surveys = policy_scope(Survey).order(created_at: :desc)
   end
 
   private
 
   def survey_params
     params.require(:survey).permit(:name, :email, :start_date, :end_date, :adults, :children, :purpose, :preferences, :budget, :asia, :memorable, :other)
+  end
+
+  def set_survey
+    @survey = Survey.find(params[:id])
   end
 end

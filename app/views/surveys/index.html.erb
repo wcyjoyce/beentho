@@ -1,0 +1,11 @@
+<h1>Survey Responses</h1>
+<ul>
+  <% @surveys.each do |survey| %>
+    <li>
+      <%= survey.name %>
+      <br>
+      <%= survey.email %>
+    </li>
+    <br>
+  <% end %>
+</ul>
