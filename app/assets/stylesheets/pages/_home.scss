@@ -1,1 +1,44 @@
-// Specific CSS for your home-page
+// Specific CSS for your homepage
+.cover {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+
+  .cover-text {
+    width: 80%;
+    margin: auto;
+
+    .title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+        margin: 30px;
+        font-weight: bolder;
+        letter-spacing: 20px;
+        font-size: 75px;
+      }
+    }
+
+    .description {
+      margin: 15px;
+      font-family: "Lato", "sans-serif";
+      font-size: 25px;
+      font-weight: lighter;
+    }
+  }
+
+  .cover-footer {
+    position: absolute;
+    bottom: 30px;
+    font-size: 35px;
+    opacity: 0.7;
+  }
+}
