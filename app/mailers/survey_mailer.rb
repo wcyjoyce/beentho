@@ -9,7 +9,7 @@ class SurveyMailer < ApplicationMailer
     @survey = survey
     mail(
       to:       "beentho.info@gmail.com",
-      subject:  "New Submission by "+@survey.name.capitalize
+      subject:  "New Submission by " + @survey.name.split.map { |n| n.capitalize}.join(" ")
     )
   end
 end

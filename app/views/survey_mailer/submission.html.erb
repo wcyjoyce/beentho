@@ -1,1 +1,56 @@
-<h1>Survey#submission</h1>
+<h1>Thanks for filling out the survey!</h1>
+
+<p>Hi <%= @survey.name.split.map { |n| n.capitalize}.join(" ") %>,</p>
+<p>Thanks for submitting your survey responses - we'll get back to you shortly on your travel suggestions. Here's a copy of your responses for your reference:</p>
+
+<table>
+  <tr>
+    <td class="field">Name:</td>
+    <td class="response"><%= @survey.name %></td>
+  </tr>
+  <tr>
+    <td class="field">Email:</td>
+    <td class="response"><%= @survey.email %></td>
+  </tr>
+  <tr>
+    <td class="field">Dates:</td>
+    <td class="response"><%= @survey.start_date.strftime("%d %b %Y") %> to <%= @survey.end_date.strftime("%d %b %Y") %></td>
+  </tr>
+  <tr>
+    <td class="field">Number of People:</td>
+    <td class="response"><%= @survey.adults %> <%= "adult".pluralize(@survey.adults) %>, <%= @survey.children %> <%= "child".pluralize(@survey.children) %></td>
+  </tr>
+  <tr>
+    <td class="field">Purpose:</td>
+    <td class="response"><%= @survey.purpose %></td>
+  </tr>
+  <tr>
+    <td class="field">Preferences:</td>
+    <td class="response"><%= @survey.preferences %></td>
+  </tr>
+  <tr>
+    <td class="field">Budget:</td>
+    <td class="response">HK$ <%= number_with_delimiter(@survey.budget) %></td>
+  </tr>
+  <% unless @survey.asia == "" %>
+    <tr>
+      <td class="field">Other Asia Travels:</td>
+      <td class="response"><%= @survey.asia %></td>
+    </tr>
+  <% end %>
+  <% unless @survey.memorable == "" %>
+    <tr>
+      <td class="field">Memorable Travel Experience:</td>
+      <td class="response"><%= @survey.memorable.capitalize %></td>
+    </tr>
+  <% end %>
+  <% unless @survey.other == "" %>
+    <tr>
+      <td class="field">Other:</td>
+      <td class="response"><%= @survey.other.capitalize %></td>
+    </tr>
+  <% end %>
+</table>
+<br>
+<p>Best regards,</p>
+<p>The BeenTho team</p>
