@@ -6,7 +6,7 @@ class Survey < ApplicationRecord
   validates :preferences, inclusion: {in: PREFERENCES}
 
   PURPOSE = ["Business", "Family", "Honeymoon", "Stag Do / Hen Do"]
-  validates :business, inclusion: {in: PURPOSE}
+  validates :purpose, inclusion: {in: PURPOSE}
 
   ASIA = [
     "Afghanistan", "Armenia", "Azerbaijan",

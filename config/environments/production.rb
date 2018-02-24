@@ -1,5 +1,14 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
+  # Mailer
+  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.default_url_options = { host: "www.beentho.info" }
+  config.action_mailer.default_url_options = { host: "http://localhost:3000" }
+  # change to true to allow email to be sent during development
+  config.action_mailer.perform_deliveries = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default charset: "utf-8"
+
+  # config.action_mailer.default_url_options = { host: "localhost:3000" }
    config.webpacker.check_yarn_integrity = false  # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

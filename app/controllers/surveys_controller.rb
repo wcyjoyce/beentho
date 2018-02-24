@@ -13,6 +13,7 @@ class SurveysController < ApplicationController
     @survey = Survey.new(survey_params)
     authorize @survey
     if @survey.save
+      SurveyMailer.submission(@survey).deliver_now
       redirect_to root_path, notice: "Thanks for completing the survey! We will get back to you within 24 hours on your travel suggestions."
     else
       redirect_to root_path, alert: "There was a problem submitting your survey responses. Please try again."
@@ -46,5 +47,9 @@ class SurveysController < ApplicationController
 
   def set_survey
     @survey = Survey.find(params[:id])
+  end
+
+  def send_submission
+    SurveyMailer.submission(self).deliver_now
   end
 end
