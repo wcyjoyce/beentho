@@ -1,3 +1,5 @@
+require "csv"
+
 class SurveysController < ApplicationController
   # before_action :set_survey, only: [:show]
   skip_before_action :authenticate_user!
@@ -19,6 +21,17 @@ class SurveysController < ApplicationController
 
   def index
     @surveys = policy_scope(Survey).order(created_at: :desc)
+
+    csv_options = {col_sep: ',', force_quotes: true, quote_char: '"' }
+    filepath = "app/views/surveys/responses.csv"
+
+    CSV.open(filepath, "wb", csv_options) do |csv|
+      csv << [:name, :email, :start_date, :end_date, :adults, :children, :purpose, :preferences, :budget, :asia, :memorable, :other]
+
+      @surveys.each do |survey|
+        csv << [survey[:name], survey[:email], survey[:start_date], survey[:end_date], survey[:adults], survey[:children], survey[:purpose], survey[:preferences], survey[:budget], survey[:asia], survey[:memorable], survey[:other]]
+      end
+    end
   end
 
   private
