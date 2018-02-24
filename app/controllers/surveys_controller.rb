@@ -22,15 +22,15 @@ class SurveysController < ApplicationController
   def index
     @surveys = policy_scope(Survey).order(created_at: :asc)
 
-    # csv_options = {col_sep: ',', force_quotes: true, quote_char: '"' }
-    # filepath = "app/views/surveys/responses.csv"
+    csv_options = {col_sep: ',', force_quotes: true, quote_char: '"' }
+    filepath = "app/views/surveys/responses.csv"
 
-    # CSV.open(filepath, "wb", csv_options) do |csv|
-    #   csv << [:name, :email, :start_date, :end_date, :adults, :children, :purpose, :preferences, :budget, :asia, :memorable, :other]
-    #   @surveys.each do |survey|
-    #     csv << [survey[:name], survey[:email], survey[:start_date], survey[:end_date], survey[:adults], survey[:children], survey[:purpose], survey[:preferences], survey[:budget], survey[:asia], survey[:memorable], survey[:other]]
-    #   end
-    # end
+    CSV.open(filepath, "wb", csv_options) do |csv|
+      csv << [:name, :email, :start_date, :end_date, :adults, :children, :purpose, :preferences, :budget, :asia, :memorable, :other]
+      @surveys.each do |survey|
+        csv << [survey[:name], survey[:email], survey[:start_date], survey[:end_date], survey[:adults], survey[:children], survey[:purpose], survey[:preferences], survey[:budget], survey[:asia], survey[:memorable], survey[:other]]
+      end
+    end
 
     respond_to do |format|
       format.html
