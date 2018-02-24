@@ -20,7 +20,7 @@ class SurveysController < ApplicationController
   end
 
   def index
-    @surveys = policy_scope(Survey).order(created_at: :desc)
+    @surveys = policy_scope(Survey).order(created_at: :asc)
 
     # csv_options = {col_sep: ',', force_quotes: true, quote_char: '"' }
     # filepath = "app/views/surveys/responses.csv"
