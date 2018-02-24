@@ -34,7 +34,7 @@ class SurveysController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @surveys.to_csv, filename: "responses-#{Date.today}.csv"}
+      format.csv { send_data @surveys.to_csv, filename: "responses_#{Date.today}.csv"}
     end
   end
 
