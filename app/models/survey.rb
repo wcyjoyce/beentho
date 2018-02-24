@@ -3,7 +3,7 @@ class Survey < ApplicationRecord
   validates :email, presence: true, format: { with: /\A.*@.*\.com\z/ }
 
   def self.to_csv
-    attributes = [:name, :email, :start_date, :end_date, :adults, :children, :purpose, :preferences, :budget, :asia, :memorable, :other]
+    attributes = [:created_at, :name, :email, :start_date, :end_date, :adults, :children, :purpose, :preferences, :budget, :asia, :memorable, :other]
 
     CSV.generate(headers: true) do |csv|
       csv << attributes
